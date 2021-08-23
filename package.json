@@ -6,8 +6,10 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.1",
     "concurrently": "^6.2.1",
     "electron": "^13.2.1",
+    "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -20,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron-react": "concurrently \"BROESER=none npm start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron-react": "node api/app.js & concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": [
