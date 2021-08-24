@@ -5,6 +5,7 @@ import React, {
     useEffect,
     useRef
 } from 'react'
+import InputForm from './Components/InputForm'
 import axios from 'axios'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <p> {text} </p>
+          <InputForm />
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -44,12 +46,14 @@ function App() {
         </a>
         <button onClick={() => setText(text + "add!")}>hello</button>
         <button onClick={connetApi}>api</button>
-      </header>
         <button onClick={() => {
-            if (true) {
-                console.log('htl')
-            }
-        }}></button>
+          axios.post('http://localhost:3333/', {iii:'postttttt'})
+            .then((val) => {
+              console.log(val.data)
+              setText(val.data.data)
+            })
+        }}>post btn</button>
+      </header>
     </div>
   );
 }
