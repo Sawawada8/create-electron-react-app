@@ -1,6 +1,8 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+// const server = require('./api/app')
+const {exec} = require('child_process')
 
 function createWindow () {
   // Create the browser window.
@@ -13,8 +15,9 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  // mainWindow.loadFile('index.html')
-  mainWindow.loadURL('http://localhost:3000')
+  // mainWindow.loadFile('file://'+__dirname+'/public/index.html')
+  mainWindow.loadURL('file://'+__dirname+'/buildaaa/index.html')
+  // mainWindow.loadURL('http://localhost:3000')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -24,6 +27,10 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  // exec('npm run server-start &', (error, stdout, stderr) => {
+
+  // })
+    // server()
   createWindow()
 
   app.on('activate', function () {
